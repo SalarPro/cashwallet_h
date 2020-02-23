@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:src="@drawable/tag_home" />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:src="@drawable/tag_bill_and_fee" />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="120dp"
+            android:layout_height="0dp"
+            android:src="@drawable/tag_entertainment" />
+
+        
+
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_1_food"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_food" />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_2_shopping"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_shopping" />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_3_taxi"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_taxi" />
+
+        
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="خارن و ڤەخارن"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="بازار"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="ڤەگوهاستن"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_4_home"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_home" />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_5_bill_and_fee"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_bill_and_fee" />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_6_entertainment"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_entertainment" />
+
+        
+
+    </LinearLayout>
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="پێتڤیێن مال"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="بودجە"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="کەیفخوشی"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_7_car"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_car"
+            />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_8_oil"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_oil" />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_9_education"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_education" />
+
+        
+
+    </LinearLayout>
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="ترومبێل"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="گاز و پانزین"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="خاندن"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+    </LinearLayout>
+
+   <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_10_travl"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_travl" />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_11_family"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_family" />
+
+        
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_12_health"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_health" />
+
+        
+
+    </LinearLayout>
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+     
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="گەریان"
+            android:textColor="@color/colorPrimary" />
+
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="کەسایەتی و خێزان"
+            android:textColor="@color/colorPrimary" />
+
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="ساخلەمی"
+            android:textColor="@color/colorPrimary" />
+
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_13_groceries"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_groceries" />
+
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_14_gift"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_gift" />
+
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_15_sport"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_sport" />
+
+
+    </LinearLayout>
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="مارکێت"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="دیاری"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="وەرزش"
+            android:textColor="@color/colorPrimary" />
+
+        
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+       
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_16_beaty"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_beaty" />
+
+      
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_17_work"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_work" />
+
+
+        <ImageView
+            android:layout_weight="1"
+            android:id="@+id/tag_18_other"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/tag_other" />
+
+
+    </LinearLayout>
+
+     <LinearLayout
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal" >
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="جوانکاری"
+            android:textColor="@color/colorPrimary" />
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="کار"
+            android:textColor="@color/colorPrimary" />
+
+
+        <TextView
+            android:layout_weight="1"
+            
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/speda"
+            android:gravity="center"
+            android:text="یێن دیتر"
+            android:textColor="@color/colorPrimary" />
+
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1" />
+
+
+</LinearLayout>

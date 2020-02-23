@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+
+    android:layout_height="wrap_content">
+
+    <Space
+        android:id="@+id/spcaee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/costToggleButton"
+        android:layout_width="174dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/tgl_mez_qaz"
+        android:checked="false"
+        android:text="ToggleButton"
+        android:textOff=" "
+        android:textOn=" "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="زێدەکرنا"
+        android:textColor="@color/colorPrimary"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/addCostBtn"
+        app:layout_constraintTop_toBottomOf="@+id/costToggleButton">
+
+        <EditText
+            android:maxLength="30"
+            android:gravity="right"
+            android:id="@+id/costName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryTransparent"
+            android:ems="10"
+            android:hint="ناڤێ مەزاختنێ"
+            android:inputType="text"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimaryTransparent"
+            tools:layout_editor_absoluteX="69dp"
+            tools:layout_editor_absoluteY="149dp" />
+
+        <EditText
+            android:maxLength="255"
+            android:gravity="right"
+            android:id="@+id/costDescrition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryTransparent"
+            android:ems="10"
+            android:hint="تێبینی"
+            android:inputType="text|textMultiLine"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimaryTransparent"
+            tools:layout_editor_absoluteX="69dp"
+            tools:layout_editor_absoluteY="149dp" />
+
+        <LinearLayout
+            android:id="@+id/dateContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/costDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimaryTransparent"
+                android:ems="10"
+                android:gravity="right"
+                android:text="2019-02-14"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimaryTransparent"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="149dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:backgroundTint="@color/colorPrimaryTransparent"
+                android:ems="10"
+                android:text="رێکەفت :"
+                android:textColor="@color/colorPrimaryTransparent"
+                android:textColorHint="@color/colorPrimaryTransparent"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="149dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/colorPrimaryTransparent" />
+
+        <EditText
+            android:maxLength="9"
+            android:gravity="right"
+            android:id="@+id/costCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimaryTransparent"
+            android:ems="10"
+            android:hint="کوژمە"
+            android:inputType="number"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimaryTransparent"
+            tools:layout_editor_absoluteX="69dp"
+            tools:layout_editor_absoluteY="149dp" />
+
+        <LinearLayout
+            android:id="@+id/selectCategory"
+            android:gravity="right|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/categoryImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/tag_other"
+                android:layout_marginRight="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryTransparent"
+                android:text="جور :"
+                android:textColor="@color/colorPrimaryTransparent"
+                android:textColorHint="@color/colorPrimaryTransparent"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="149dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/colorPrimaryTransparent" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/addCostBtn"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/round_bg_blu"
+        android:text="زێدەبکە"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
