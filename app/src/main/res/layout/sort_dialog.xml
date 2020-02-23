@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Space
+            android:id="@+id/mainSpace"
+
+            android:layout_width="300dp"
+            android:layout_height="0.1dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="رێزبەندی"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/newedstBtn"
+            android:layout_width="210dp"
+            android:layout_height="42dp"
+            android:background="@drawable/round_bg_blu"
+            android:gravity="center"
+            android:text="نویترین"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="106dp"
+
+            />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/oldestBtn"
+            android:layout_width="210dp"
+            android:layout_height="42dp"
+            android:background="@drawable/round_bg_blu"
+            android:gravity="center"
+            android:text="کەڤنترین"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="106dp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/highestPrice"
+            android:layout_width="210dp"
+            android:layout_height="42dp"
+            android:background="@drawable/round_bg_blu"
+            android:gravity="center"
+            android:text="پترین بها"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="106dp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/lowestPrice"
+            android:layout_width="210dp"
+            android:layout_height="42dp"
+            android:background="@drawable/round_bg_blu"
+            android:gravity="center"
+            android:text="کێمترین بها"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="106dp" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/sortByType"
+            android:layout_width="210dp"
+            android:layout_height="42dp"
+            android:background="@drawable/round_bg_blu"
+            android:gravity="center"
+            android:text="لدویڤ جوری"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="106dp" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="10dp" />
+
+        <Button
+            android:id="@+id/sortDefult"
+            android:layout_width="210dp"
+            android:layout_height="42dp"
+            android:background="@drawable/round_bg_blu"
+            android:gravity="center"
+            android:text="مێژویا زێدەکرنێ"
+            android:textColor="@color/white"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="106dp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

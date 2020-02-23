@@ -14,9 +14,9 @@
         android:icon="@drawable/sort_descending"
         android:title="Item"
         app:showAsAction="always" />
-    <item
+    <!--<item
         android:id="@+id/mSetting"
         android:icon="@drawable/settings"
         android:title="Item"
-        app:showAsAction="always" />
+        app:showAsAction="always" />-->
 </menu>

@@ -75,4 +75,14 @@ class MyDatabase(context: Context?) : SQLiteOpenHelper(context, "information.db"
 
     }
 
+    fun deleteItem(id: Int) {
+        try {
+            writableDatabase.execSQL(
+                "DELETE FROM cash WHERE id = $id"
+            )
+        } catch (ex: SQLiteException) {
+            Log.d("errorrrr", ex.message)
+        }
+    }
+
 }

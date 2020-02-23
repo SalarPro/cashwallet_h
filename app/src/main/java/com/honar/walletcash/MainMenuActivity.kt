@@ -1,6 +1,7 @@
 package com.honar.walletcash
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -49,7 +50,8 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
             0
         )
 
-        dialog.findViewById<TextView>(R.id.costDate).text = android.text.format.DateFormat.format("yyyy-MM-dd", Date())
+        dialog.findViewById<TextView>(R.id.costDate).text =
+            android.text.format.DateFormat.format("yyyy-MM-dd", Date())
 
         dialog.show()
         dialog.findViewById<Button>(R.id.addCostBtn).setOnClickListener {
@@ -83,7 +85,7 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
             val dialog1 = Dialog(this)
             dialog1.setContentView(R.layout.date_picker_dialog_alert)
             dialog1.show()
-            c = dialog1.findViewById<DatePicker>(R.id.datepickerDialog)
+            c = dialog1.findViewById(R.id.datepickerDialog)
 
             c.maxDate = Date().time
             dialog1.findViewById<Button>(R.id.en).setOnClickListener {
@@ -216,7 +218,7 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         var mezaxtn = 0
         var qazanc = 0
-        val berdest : Int
+        val berdest: Int
 
         database.getAllData()
         showItemData.clear()
@@ -252,7 +254,18 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     }
 
     private fun itemClicked(cash: Cash, position: Int) {
-        ttt(this, cash.name + cash.cash + cash.id)
+        if (position == 123456) {
+            AlertDialog.Builder(this)
+                .setTitle("تەدڤێت ژێببەی")
+                .setPositiveButton("بەلێ"){_,_ ->
+                    database.deleteItem(cash.id)
+                    getItemData()
+                }.setNegativeButton("نەخێر"){_,_ ->
+
+                }.show()
+        } else {
+            //ttt(this, cash.name + cash.cash + cash.id)
+        }
     }
 
 
@@ -271,18 +284,90 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         when (item!!.itemId) {
             R.id.mSort -> {
 
-            }
-            R.id.mSetting -> {
+                val dialog = Dialog(this)
+                dialog.setContentView(R.layout.sort_dialog)
+
+                val metrics = resources.displayMetrics
+                val screenWidth = metrics.widthPixels
+
+                dialog.findViewById<Space>(R.id.mainSpace).layoutParams = LinearLayout.LayoutParams(
+                    (screenWidth * 0.9).toInt(),
+                    0
+                )
+                dialog.show()
+
+                dialog.findViewById<Button>(R.id.newedstBtn).setOnClickListener {
+                    sortDataLike(NUMnewedstBtn)
+                    dialog.dismiss()
+                }
+                dialog.findViewById<Button>(R.id.oldestBtn).setOnClickListener {
+                    sortDataLike(NUMoldestBtn)
+                    dialog.dismiss()
+                }
+                dialog.findViewById<Button>(R.id.highestPrice).setOnClickListener {
+                    sortDataLike(NUMhighestPrice)
+                    dialog.dismiss()
+                }
+                dialog.findViewById<Button>(R.id.lowestPrice).setOnClickListener {
+                    sortDataLike(NUMlowestPrice)
+                    dialog.dismiss()
+                }
+                dialog.findViewById<Button>(R.id.sortByType).setOnClickListener {
+                    sortDataLike(NUMType)
+                    dialog.dismiss()
+                }
+                dialog.findViewById<Button>(R.id.sortDefult).setOnClickListener {
+                    sortDataLike(NUMDefult)
+                    dialog.dismiss()
+                }
 
             }
+//            R.id.mSetting -> {
+//                ttt(this, "Settings")
+//
+//            }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun sortDataLike(sort: Int) {
+        showItemData.clear()
+        when (sort) {
+            NUMnewedstBtn -> {
+                itemData.sortWith(compareBy { it.date })
+                itemData.reverse()
+            }
+            NUMoldestBtn -> {
+
+                itemData.sortWith(compareBy { it.date })
+            }
+            NUMhighestPrice -> {
+                itemData.sortWith(compareBy { it.cash })
+                itemData.reverse()
+            }
+            NUMlowestPrice -> {
+                itemData.sortWith(compareBy { it.cash })
+            }
+            NUMType -> {
+                itemData.sortWith(compareBy { it.tag })
+            }
+            NUMDefult -> {
+                itemData.sortWith(compareBy { it.id })
+
+                itemData.reverse()
+            }
+        }
+        for (item in itemData) {
+            showItemData.add(item)
+        }
+        mainAdapter.notifyDataSetChanged()
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {
 
         return true
     }
+
     var searchMode = false
 
     @SuppressLint("DefaultLocale")
@@ -290,9 +375,10 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         if (newText!!.isNotEmpty()) {
             showItemData.clear()
             for (cash in itemData) {
-                if (cash.name.toUpperCase().contains(newText.toUpperCase())||
-                    cash.description.toUpperCase().contains(newText.toUpperCase())||
-                    cash.cash.toString().contains(newText)) {
+                if (cash.name.toUpperCase().contains(newText.toUpperCase()) ||
+                    cash.description.toUpperCase().contains(newText.toUpperCase()) ||
+                    cash.cash.toString().contains(newText)
+                ) {
                     showItemData.add(cash)
                 }
             }

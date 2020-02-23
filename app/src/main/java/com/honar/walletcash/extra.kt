@@ -65,3 +65,11 @@ fun getImageIDByTAG(tagID: Int): Int {
 fun ttt(context: Activity,text : String){
     Toast.makeText(context,text,Toast.LENGTH_LONG).show()
 }
+
+
+val NUMnewedstBtn = 0
+val NUMoldestBtn = 1
+val NUMhighestPrice = 2
+val NUMlowestPrice = 3
+val NUMType = 4
+val NUMDefult = 5

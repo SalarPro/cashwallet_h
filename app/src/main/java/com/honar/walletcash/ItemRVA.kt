@@ -48,6 +48,10 @@ class ItemRVA(context:Activity) : RecyclerView.Adapter<RecyclerView.ViewHolder>(
             itemView.mainCardView.setOnClickListener {
                 onItemClickListner.onItemClicked(cash,position)
             }
+            itemView.mainCardView.setOnLongClickListener{
+                onItemClickListner.onItemClicked(cash,123456)
+                true
+            }
 
             itemView.itemName.text = cash.name
             itemView.itemDescription.text = cash.description
