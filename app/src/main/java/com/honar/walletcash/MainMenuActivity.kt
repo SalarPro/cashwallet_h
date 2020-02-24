@@ -264,7 +264,7 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
                 }.show()
         } else {
-            //ttt(this, cash.name + cash.cash + cash.id)
+
         }
     }
 
