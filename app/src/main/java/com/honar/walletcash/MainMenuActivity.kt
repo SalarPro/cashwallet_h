@@ -18,6 +18,7 @@ import java.lang.Exception
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.abs
 
 class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
@@ -342,11 +343,11 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 itemData.sortWith(compareBy { it.date })
             }
             NUMhighestPrice -> {
-                itemData.sortWith(compareBy { it.cash })
+                itemData.sortWith(compareBy { abs(it.cash) })
                 itemData.reverse()
             }
             NUMlowestPrice -> {
-                itemData.sortWith(compareBy { it.cash })
+                itemData.sortWith(compareBy { abs(it.cash) })
             }
             NUMType -> {
                 itemData.sortWith(compareBy { it.tag })
