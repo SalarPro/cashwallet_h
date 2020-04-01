@@ -14,6 +14,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main_menu.*
 import kotlinx.android.synthetic.main.category_dialog_layout.*
+import kotlinx.android.synthetic.main.date_picker_dialog_alert.*
+import kotlinx.android.synthetic.main.insert_data_dialog.*
+import kotlinx.android.synthetic.main.sort_dialog.*
 import java.lang.Exception
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -46,28 +49,42 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         var cCategory = 18
         var c: DatePicker
-        dialog.findViewById<Space>(R.id.spcaee).layoutParams = ConstraintLayout.LayoutParams(
+        dialog.spcaee.layoutParams = ConstraintLayout.LayoutParams(
             (screenWidth * 0.8).toInt(),
             0
         )
 
-        dialog.findViewById<TextView>(R.id.costDate).text =
+        dialog.costDate.text =
             android.text.format.DateFormat.format("yyyy-MM-dd", Date())
 
         dialog.show()
-        dialog.findViewById<Button>(R.id.addCostBtn).setOnClickListener {
+        dialog.addCostBtn.setOnClickListener {
+
+
+            when {
+                dialog.costName.text.toString().isEmpty() -> {
+                    ttt(this, "ناڤی بنڤێسە")
+                    return@setOnClickListener
+                }
+                dialog.costCost.text.toString().isEmpty() -> {
+                    ttt(this, "کوژمەی بنڤێسە")
+                    return@setOnClickListener
+                }
+            }
+
+
             val myCash = Cash(
-                name = dialog.findViewById<EditText>(R.id.costName).text.toString(),
-                description = dialog.findViewById<EditText>(R.id.costDescrition).text.toString(),
+                name = dialog.costName.text.toString(),
+                description = dialog.costDescrition.text.toString(),
                 tag = cCategory,
-                cash = dialog.findViewById<EditText>(R.id.costCost).text.toString().toInt(),
-                date = SimpleDateFormat("yyyy-MM-dd").parse(dialog.findViewById<TextView>(R.id.costDate).text.toString())
+                cash = dialog.costCost.text.toString().toInt(),
+                date = SimpleDateFormat("yyyy-MM-dd").parse(dialog.costDate.text.toString())
             )
             database.addNewCost(
-                name = dialog.findViewById<EditText>(R.id.costName).text.toString(),
-                description = dialog.findViewById<EditText>(R.id.costDescrition).text.toString(),
+                name = dialog.costName.text.toString(),
+                description = dialog.costDescrition.text.toString(),
                 tag = cCategory,
-                cost = dialog.findViewById<EditText>(R.id.costCost).text.toString().toInt() * if (dialog.findViewById<ToggleButton>(
+                cost = dialog.costCost.text.toString().toInt() * if (dialog.findViewById<ToggleButton>(
                         R.id.costToggleButton
                     ).isChecked
                 ) {
@@ -75,21 +92,21 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 } else {
                     -1
                 },
-                datee = SimpleDateFormat("yyyy-MM-dd").parse(dialog.findViewById<TextView>(R.id.costDate).text.toString())
+                datee = SimpleDateFormat("yyyy-MM-dd").parse(dialog.costDate.text.toString())
             )
             getItemData()
             dialog.dismiss()
 
         }
 
-        dialog.findViewById<LinearLayout>(R.id.dateContainer).setOnClickListener {
+        dialog.dateContainer.setOnClickListener {
             val dialog1 = Dialog(this)
             dialog1.setContentView(R.layout.date_picker_dialog_alert)
             dialog1.show()
             c = dialog1.findViewById(R.id.datepickerDialog)
 
             c.maxDate = Date().time
-            dialog1.findViewById<Button>(R.id.en).setOnClickListener {
+            dialog1.en.setOnClickListener {
 
                 var month = (c.month + 1).toString()
                 if (month.length == 1) {
@@ -98,7 +115,7 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 }
 
 
-                dialog.findViewById<TextView>(R.id.costDate).text =
+                dialog.costDate.text =
                     "${c.year}-$month-${c.dayOfMonth}"
                 dialog1.dismiss()
             }
@@ -112,77 +129,77 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 0
             )*/
             dialog2.show()
-            dialog2.findViewById<ImageView>(R.id.tag_1_food).setOnClickListener {
-                cCategory = 1; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_food);dialog2.dismiss()
+            dialog2.tag_1_food.setOnClickListener {
+                cCategory =
+                    1; dialog.categoryImage.setImageResource(R.drawable.tag_food);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_2_shopping).setOnClickListener {
-                cCategory = 2; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_shopping);dialog2.dismiss()
+            dialog2.tag_2_shopping.setOnClickListener {
+                cCategory =
+                    2; dialog.categoryImage.setImageResource(R.drawable.tag_shopping);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_3_taxi).setOnClickListener {
-                cCategory = 3; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_taxi);dialog2.dismiss()
+            dialog2.tag_3_taxi.setOnClickListener {
+                cCategory =
+                    3; dialog.categoryImage.setImageResource(R.drawable.tag_taxi);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_4_home).setOnClickListener {
-                cCategory = 4; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_home);dialog2.dismiss()
+            dialog2.tag_4_home.setOnClickListener {
+                cCategory =
+                    4; dialog.categoryImage.setImageResource(R.drawable.tag_home);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_5_bill_and_fee).setOnClickListener {
-                cCategory = 5; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_bill_and_fee);dialog2.dismiss()
+            dialog2.tag_5_bill_and_fee.setOnClickListener {
+                cCategory =
+                    5; dialog.categoryImage.setImageResource(R.drawable.tag_bill_and_fee);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_6_entertainment).setOnClickListener {
-                cCategory = 6; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_entertainment);dialog2.dismiss()
+            dialog2.tag_6_entertainment.setOnClickListener {
+                cCategory =
+                    6; dialog.categoryImage.setImageResource(R.drawable.tag_entertainment);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_7_car).setOnClickListener {
-                cCategory = 7; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_car);dialog2.dismiss()
+            dialog2.tag_7_car.setOnClickListener {
+                cCategory =
+                    7; dialog.categoryImage.setImageResource(R.drawable.tag_car);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_8_oil).setOnClickListener {
-                cCategory = 8; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_oil);dialog2.dismiss()
+            dialog2.tag_8_oil.setOnClickListener {
+                cCategory =
+                    8; dialog.categoryImage.setImageResource(R.drawable.tag_oil);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_9_education).setOnClickListener {
-                cCategory = 9; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_education);dialog2.dismiss()
+            dialog2.tag_9_education.setOnClickListener {
+                cCategory =
+                    9; dialog.categoryImage.setImageResource(R.drawable.tag_education);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_10_travl).setOnClickListener {
-                cCategory = 10; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_travl);dialog2.dismiss()
+            dialog2.tag_10_travl.setOnClickListener {
+                cCategory =
+                    10; dialog.categoryImage.setImageResource(R.drawable.tag_travl);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_11_family).setOnClickListener {
-                cCategory = 11; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_family);dialog2.dismiss()
+            dialog2.tag_11_family.setOnClickListener {
+                cCategory =
+                    11; dialog.categoryImage.setImageResource(R.drawable.tag_family);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_12_health).setOnClickListener {
-                cCategory = 12; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_health);dialog2.dismiss()
+            dialog2.tag_12_health.setOnClickListener {
+                cCategory =
+                    12; dialog.categoryImage.setImageResource(R.drawable.tag_health);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_13_groceries).setOnClickListener {
-                cCategory = 13; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_groceries);dialog2.dismiss()
+            dialog2.tag_13_groceries.setOnClickListener {
+                cCategory =
+                    13; dialog.categoryImage.setImageResource(R.drawable.tag_groceries);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_14_gift).setOnClickListener {
-                cCategory = 14; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_gift);dialog2.dismiss()
+            dialog2.tag_14_gift.setOnClickListener {
+                cCategory =
+                    14; dialog.categoryImage.setImageResource(R.drawable.tag_gift);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_15_sport).setOnClickListener {
-                cCategory = 15; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_sport);dialog2.dismiss()
+            dialog2.tag_15_sport.setOnClickListener {
+                cCategory =
+                    15; dialog.categoryImage.setImageResource(R.drawable.tag_sport);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_16_beaty).setOnClickListener {
-                cCategory = 16; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_beaty);dialog2.dismiss()
+            dialog2.tag_16_beaty.setOnClickListener {
+                cCategory =
+                    16; dialog.categoryImage.setImageResource(R.drawable.tag_beaty);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_17_work).setOnClickListener {
-                cCategory = 17; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_work);dialog2.dismiss()
+            dialog2.tag_17_work.setOnClickListener {
+                cCategory =
+                    17; dialog.categoryImage.setImageResource(R.drawable.tag_work);dialog2.dismiss()
             }
-            dialog2.findViewById<ImageView>(R.id.tag_18_other).setOnClickListener {
-                cCategory = 18; dialog.findViewById<ImageView>(R.id.categoryImage)
-                .setImageResource(R.drawable.tag_other);dialog2.dismiss()
+            dialog2.tag_18_other.setOnClickListener {
+                cCategory =
+                    18; dialog.categoryImage.setImageResource(R.drawable.tag_other);dialog2.dismiss()
             }
 
         }
@@ -258,10 +275,10 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         if (position == 123456) {
             AlertDialog.Builder(this)
                 .setTitle("تەدڤێت ژێببەی")
-                .setPositiveButton("بەلێ"){_,_ ->
+                .setPositiveButton("بەلێ") { _, _ ->
                     database.deleteItem(cash.id)
                     getItemData()
-                }.setNegativeButton("نەخێر"){_,_ ->
+                }.setNegativeButton("نەخێر") { _, _ ->
 
                 }.show()
         } else {
@@ -297,27 +314,27 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 )
                 dialog.show()
 
-                dialog.findViewById<Button>(R.id.newedstBtn).setOnClickListener {
+                dialog.newedstBtn.setOnClickListener {
                     sortDataLike(NUMnewedstBtn)
                     dialog.dismiss()
                 }
-                dialog.findViewById<Button>(R.id.oldestBtn).setOnClickListener {
+                dialog.oldestBtn.setOnClickListener {
                     sortDataLike(NUMoldestBtn)
                     dialog.dismiss()
                 }
-                dialog.findViewById<Button>(R.id.highestPrice).setOnClickListener {
+                dialog.highestPrice.setOnClickListener {
                     sortDataLike(NUMhighestPrice)
                     dialog.dismiss()
                 }
-                dialog.findViewById<Button>(R.id.lowestPrice).setOnClickListener {
+                dialog.lowestPrice.setOnClickListener {
                     sortDataLike(NUMlowestPrice)
                     dialog.dismiss()
                 }
-                dialog.findViewById<Button>(R.id.sortByType).setOnClickListener {
+                dialog.sortByType.setOnClickListener {
                     sortDataLike(NUMType)
                     dialog.dismiss()
                 }
-                dialog.findViewById<Button>(R.id.sortDefult).setOnClickListener {
+                dialog.sortDefult.setOnClickListener {
                     sortDataLike(NUMDefult)
                     dialog.dismiss()
                 }
@@ -339,7 +356,6 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 itemData.reverse()
             }
             NUMoldestBtn -> {
-
                 itemData.sortWith(compareBy { it.date })
             }
             NUMhighestPrice -> {
