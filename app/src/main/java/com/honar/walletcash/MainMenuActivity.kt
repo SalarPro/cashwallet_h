@@ -92,7 +92,7 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 } else {
                     -1
                 },
-                datee = SimpleDateFormat("yyyy-MM-dd").parse(dialog.costDate.text.toString())
+                datee = SimpleDateFormat("yyyy-MM-dd HH:mm:s").parse(dialog.costDate.text.toString()+"${android.text.format.DateFormat.format(" HH:mm:s", Date())}")
             )
             getItemData()
             dialog.dismiss()

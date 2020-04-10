@@ -32,10 +32,10 @@ class MyDatabase(context: Context?) : SQLiteOpenHelper(context, "information.db"
     }
 
 
-    fun addNewCost(name: String, description: String, datee: Date, cost: Int,tag : Int) {
+    fun addNewCost(name: String, description: String, datee: Date, cost: Int, tag: Int) {
 
         try {
-            var date = android.text.format.DateFormat.format("yyyy-MM-dd HH:MM:s", datee)
+            var date = android.text.format.DateFormat.format("yyyy-MM-dd HH:mm:s", datee)
             writableDatabase.execSQL(
                 "INSERT INTO cash (name,description_,date_,cost,tag) VALUES ('$name','$description','$date', $cost , $tag ) "
             )
@@ -54,12 +54,17 @@ class MyDatabase(context: Context?) : SQLiteOpenHelper(context, "information.db"
                 itemData.clear()
                 do {
 
-                    itemData.add(Cash(id = curser.getInt(0),
-                        name = curser.getString(1),
-                        description = curser.getString(2),
-                        date = SimpleDateFormat("yyyy-MM-dd HH:MM:s").parse(curser.getString(3)),
-                        cash = curser.getInt(4),
-                        tag = curser.getInt(5)))
+                    itemData.add(
+                        Cash(
+                            id = curser.getInt(0),
+                            name = curser.getString(1),
+                            description = curser.getString(2),
+                            date = SimpleDateFormat("yyyy-MM-dd HH:mm:s").parse(curser.getString(3)),
+                            cash = curser.getInt(4),
+                            tag = curser.getInt(5)
+                        )
+                    )
+                    Log.d("sasasa", curser.getString(3))
                 } while (curser.moveToNext())
                 itemData.reverse()
             }
@@ -71,7 +76,7 @@ class MyDatabase(context: Context?) : SQLiteOpenHelper(context, "information.db"
     }
 
 
-    fun clearData(){
+    fun clearData() {
         writableDatabase.execSQL("DELETE FROM cash")
     }
 

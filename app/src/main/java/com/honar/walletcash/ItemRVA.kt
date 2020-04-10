@@ -56,7 +56,7 @@ class ItemRVA(context:Activity) : RecyclerView.Adapter<RecyclerView.ViewHolder>(
             itemView.itemName.text = cash.name
             itemView.itemDescription.text = cash.description
 
-            val date = android.text.format.DateFormat.format("yyyy-MM-dd", cash.date)
+            val date = android.text.format.DateFormat.format("yyyy-MM-dd hh-mm a", cash.date)
             itemView.itemDate.text = date
 
             itemView.itemImage.setImageResource(getImageIDByTAG(cash.tag))
@@ -66,10 +66,7 @@ class ItemRVA(context:Activity) : RecyclerView.Adapter<RecyclerView.ViewHolder>(
                 itemView.itemCost.setTextColor(ContextCompat.getColor(context, R.color.gre))
             }else{
                 itemView.itemCost.setTextColor(ContextCompat.getColor(context, R.color.red))
-
             }
-
         }
     }
-
 }
