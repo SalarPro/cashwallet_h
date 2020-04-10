@@ -237,7 +237,6 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         var mezaxtn = 0
         var qazanc = 0
         val berdest: Int
-
         database.getAllData()
         showItemData.clear()
         for (item in itemData) {
@@ -253,7 +252,7 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
         val dcf = DecimalFormat("#,###.#")
         berdestTV.text = "${dcf.format(berdest)} IQD"
-        mezaxtnTV.text = "${dcf.format(mezaxtn)} IQD"
+        mezaxtnTV.text = "${dcf.format(abs(mezaxtn))} IQD"
         qazancTV.text = "${dcf.format(qazanc)} IQD"
 
         mainAdapter.notifyDataSetChanged()
@@ -386,6 +385,7 @@ class MainMenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     }
 
     var searchMode = false
+
 
     @SuppressLint("DefaultLocale")
     override fun onQueryTextChange(newText: String?): Boolean {

@@ -47,6 +47,7 @@ class MyDatabase(context: Context?) : SQLiteOpenHelper(context, "information.db"
     @SuppressLint("Recycle", "SimpleDateFormat")
     fun getAllData() {
         try {
+            itemData.clear()
             val curser = readableDatabase.rawQuery("select * from cash", null)
             if (curser.moveToFirst()) {
 
@@ -72,7 +73,6 @@ class MyDatabase(context: Context?) : SQLiteOpenHelper(context, "information.db"
 
     fun clearData(){
         writableDatabase.execSQL("DELETE FROM cash")
-
     }
 
     fun deleteItem(id: Int) {
